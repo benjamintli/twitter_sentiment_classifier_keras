@@ -38,9 +38,9 @@ def convert_text_to_index_array(text):
     return word_indices
 
 
-@app.route("/")
+@app.route('/')
 def index():
-    return "gotem"
+    return 'hello world'
 
 
 @app.route("/predict", methods=["POST"])
