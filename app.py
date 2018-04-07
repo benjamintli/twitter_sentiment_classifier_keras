@@ -40,7 +40,7 @@ def convert_text_to_index_array(text):
 
 @app.route('/')
 def index():
-    return 'hello world'
+    return 'yo its lit'
 
 
 @app.route("/predict", methods=["POST"])
