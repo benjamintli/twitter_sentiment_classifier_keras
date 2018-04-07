@@ -9,7 +9,6 @@ app = Flask(__name__)
 model = None
 labels = ['negative', 'positive']
 
-
 def load_model():
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
