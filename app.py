@@ -6,7 +6,7 @@ from keras.models import model_from_json
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-model = None
+#model = None
 labels = ['negative', 'positive']
 
 def load_model():
