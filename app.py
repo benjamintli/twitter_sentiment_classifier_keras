@@ -6,7 +6,7 @@ from keras.models import model_from_json
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-#model = None
+model = None
 labels = ['negative', 'positive']
 
 def load_model():
@@ -18,6 +18,7 @@ def load_model():
     model = model_from_json(loaded_model_json)
     # and weight your nodes with your saved values
     model.load_weights('model.h5')
+    return 'model created'
 
 
 def preprocess_text(input_text):
