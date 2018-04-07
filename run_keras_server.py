@@ -38,6 +38,11 @@ def convert_text_to_index_array(text):
     return word_indices
 
 
+@app.route("/")
+def index():
+    return "gotem"
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     #dictionary (no the other dictionary)
