@@ -9,6 +9,7 @@ app = Flask(__name__)
 model = None
 labels = ['negative', 'positive']
 
+
 def load_model():
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
@@ -18,7 +19,7 @@ def load_model():
     model = model_from_json(loaded_model_json)
     # and weight your nodes with your saved values
     model.load_weights('model.h5')
-    return 'model created'
+    print('model created')
 
 
 def preprocess_text(input_text):
