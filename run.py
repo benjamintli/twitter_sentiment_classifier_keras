@@ -11,7 +11,7 @@ tokenizer = Tokenizer(num_words=10000)
 labels = ['negative', 'positive']
 
 # read in our saved dictionary
-with open('dictionary.json', 'r') as dictionary_file:
+with open('training_data/dictionary.json', 'r') as dictionary_file:
     dictionary = json.load(dictionary_file)
 
 def convert_text_to_index_array(text):
@@ -25,13 +25,13 @@ def convert_text_to_index_array(text):
     return wordIndices
 
 # read in your saved model structure
-json_file = open('model.json', 'r')
+json_file = open('training_data/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 # and create a model from that
 model = model_from_json(loaded_model_json)
 # and weight your nodes with your saved values
-model.load_weights('model.h5')
+model.load_weights('training_data/model.h5')
 
 # okay here's the interactive part
 while 1:

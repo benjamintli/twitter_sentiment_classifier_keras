@@ -12,7 +12,7 @@ labels = ['negative', 'positive']
 def load_model():
     # initialize flask
     app = Flask(__name__)
-    json_file = open('model.json', 'r')
+    json_file = open('training_data/model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     # and create a model from that
@@ -20,7 +20,7 @@ def load_model():
     model = model_from_json(loaded_model_json)
     # and weight the nodes with saved values
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-    model.load_weights('model.h5')
+    model.load_weights('training_data/model.h5')
     print('model created')
     #return app variable
     return app
@@ -37,7 +37,7 @@ def preprocess_text(input_text):
 
 
 def convert_text_to_index_array(text):
-    with open('dictionary.json', 'r') as dictionary_file:
+    with open('training_data/dictionary.json', 'r') as dictionary_file:
         dictionary = json.load(dictionary_file)
     words = kpt.text_to_word_sequence(text)
     word_indices = []

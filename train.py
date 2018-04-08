@@ -9,7 +9,7 @@ import json
 
 
 #index the sentiment and the tweet
-training = np.genfromtxt('processed.csv',
+training = np.genfromtxt('training_data/processed.csv',
                          delimiter=',',
                          skip_header=1,
                          usecols=(0, 1),
@@ -24,7 +24,7 @@ tokenizer = kt.Tokenizer(num_words=10000)
 tokenizer.fit_on_texts(train_x)
 
 dictionary = tokenizer.word_index
-with open('dictionary.json', 'w') as dictionary_file:
+with open('training_data/dictionary.json', 'w') as dictionary_file:
     json.dump(dictionary, dictionary_file)
 
 
@@ -64,7 +64,7 @@ model.fit(train_x, train_y,
   shuffle=True)
 
 model_json = model.to_json()
-with open('model.json', 'w') as json_file:
+with open('training_data/model.json', 'w') as json_file:
     json_file.write(model_json)
 
-model.save_weights('model.h5')
+model.save_weights('training_data/model.h5')
