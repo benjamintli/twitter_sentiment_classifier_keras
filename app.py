@@ -5,12 +5,12 @@ from keras.preprocessing.text import Tokenizer
 from keras.models import model_from_json
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
 model = None
 labels = ['negative', 'positive']
 
 
 def load_model():
+    app = Flask(__name__)
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
@@ -21,6 +21,10 @@ def load_model():
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.load_weights('model.h5')
     print('model created')
+    return app
+
+
+app = load_model()
 
 
 def preprocess_text(input_text):
@@ -58,9 +62,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    print(("* Loading Keras model and Flask starting server..."
-        "please wait until server has fully started"))
-    load_model()
     app.run()
 
 
