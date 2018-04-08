@@ -10,6 +10,7 @@ labels = ['negative', 'positive']
 
 
 def load_model():
+    # initialize flask
     app = Flask(__name__)
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
@@ -17,13 +18,14 @@ def load_model():
     # and create a model from that
     global model
     model = model_from_json(loaded_model_json)
-    # and weight your nodes with your saved values
+    # and weight the nodes with saved values
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.load_weights('model.h5')
     print('model created')
+    #return app variable
     return app
 
-
+# this ensures that the model is loaded when the service starts
 app = load_model()
 
 
