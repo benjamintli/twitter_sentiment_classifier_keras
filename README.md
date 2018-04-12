@@ -2,7 +2,8 @@
 
 This is a sentiment classifier, using tweets to make a text corpus. It has about 6000 tweets with a positive sentiment and 6000 with a negative sentiment.
 
-https://keras-sentiment-analysis.herokuapp.com/predict -> curl this URL; json is  {"phrase": " insert phrase "}
+REST api can be found here:
+https://keras-sentiment-analysis.herokuapp.com/predict
 
 ### Preprocessing
 
@@ -16,6 +17,6 @@ the script then takes these words and trains a single layer neural network.
 
 commandline script called run.py loads the model and gets the user to input a phrase. the script checks the corpus for the word. if it finds it, it'll load the index of it. otherwise, it'll skip over that word. it'll feed that into the trained model and output a prediciton of positive or negative. it'll also output an "accuracy" between 0 or 1.
 
-### Current problem
+### Flask API
 
-i'm guessing because i used a really simple single layer neural network, it'll output an inaccurate prediction. for the most part it works okay, but if you throw it something like "not happy", it'll predict it as a positive sentiment. I'm guessing using Word2Vec or other word embedding layers would give you better results. 
+A flask REST api has been created, hosted on heroku. use the model, curl the url above and run a POST request, with the json in the format of {"phrase": "this is a test phrase"}
