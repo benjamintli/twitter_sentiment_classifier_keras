@@ -19,7 +19,6 @@ def load_model():
     global model
     model = model_from_json(loaded_model_json)
     # and weight the nodes with saved values
-    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.load_weights('training_data/model.h5')
     print('model created')
     #return app variable
