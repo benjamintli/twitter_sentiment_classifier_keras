@@ -20,16 +20,16 @@ commandline script called run.py loads the model and gets the user to input a ph
 ### Flask API
 
 A flask REST api has been created, hosted on heroku. use the model, run a POST request on the url above. here's an example of a request
-'''
+```
 {
 	"phrase": "well isn't this stupid"
 }
-'''
+```
 The output will look like
 
-'''
+```
 {
     "accuracy": 0.9215755462646484,
     "polarity": "negative"
 }
-'''
+```
