@@ -5,9 +5,7 @@ import keras.preprocessing.text as kpt
 from keras.preprocessing.text import Tokenizer
 from keras.models import model_from_json
 
-# we're still going to use a Tokenizer here, but we don't need to fit it
 tokenizer = Tokenizer(num_words=10000)
-# for human-friendly printing
 labels = ['negative', 'positive']
 
 # read in our saved dictionary
@@ -21,19 +19,17 @@ def convert_text_to_index_array(text):
         if word in dictionary:
             wordIndices.append(dictionary[word])
         else:
-            print("'%s' not in training corpus; ignoring." %(word))
+            print("'%s' not in training dictionary; ignoring." %(word))
     return wordIndices
 
-# read in your saved model structure
+#load model from disk
 json_file = open('training_data/model.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
-# and create a model from that
 model = model_from_json(loaded_model_json)
-# and weight your nodes with your saved values
 model.load_weights('training_data/model.h5')
 
-# okay here's the interactive part
+#use stdin to grab something from the user
 while 1:
     evalSentence = input('Input a sentence to be evaluated, or Enter to quit: ')
 
@@ -43,7 +39,7 @@ while 1:
     # format your input for the neural net
     testArr = convert_text_to_index_array(evalSentence)
     input_eval = tokenizer.sequences_to_matrix([testArr], mode='binary')
-    # predict which bucket your input belongs in
+    # predict which label the input belongs in
     pred = model.predict(input_eval)
     print(pred)
     print("%s sentiment; %f confidence" % (labels[np.argmax(pred)], pred[0][np.argmax(pred)]))
