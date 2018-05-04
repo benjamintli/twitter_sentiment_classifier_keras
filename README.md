@@ -1,6 +1,6 @@
-# twitter_sentiment_classifier_keras
+# Sentiment Classifier
 
-This is a sentiment classifier, using tweets to make a text corpus. It has about 6000 tweets with a positive sentiment and 6000 with a negative sentiment.
+This is a sentiment classifier, using tweets to make a text corpus. It has about 6000 tweets with a positive sentiment and 6000 with a negative sentiment. These tweets were chosen from the Sentiment140 dataset.
 
 REST api can be found here:
 https://keras-sentiment-analysis.herokuapp.com/predict
@@ -11,11 +11,11 @@ The script does some preprocessing on the tweets. It'll tokenize the top 10k wor
 
 ### Training the model
 
-the script then takes these words and trains a single layer neural network. 
+The script then takes these words and feeds it into a single layer neural network. 
 
-### Using the model
+### Prototyping the model
 
-commandline script called run.py loads the model and gets the user to input a phrase. the script checks the corpus for the word. if it finds it, it'll load the index of it. otherwise, it'll skip over that word. it'll feed that into the trained model and output a prediciton of positive or negative. it'll also output an "accuracy" between 0 or 1.
+Commandline script called run.py loads the model and gets the user to input a phrase. The script checks the corpus for the word. if it finds it, it'll load the index of it. Otherwise, it'll skip over that word. it'll feed that into the trained model and output a prediciton of positive or negative. It'll also output an "accuracy" float between 0 or 1.
 
 ### Flask API
 
