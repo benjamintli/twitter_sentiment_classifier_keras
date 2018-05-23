@@ -13,7 +13,7 @@ The script does some preprocessing on the tweets. It'll tokenize the top 10k wor
 
 The script then takes these words and feeds it into a single layer neural network. 
 
-### Prototyping the model
+### Prototyping the API
 
 Commandline script called run.py loads the model and gets the user to input a phrase. The script checks the corpus for the word. if it finds it, it'll load the index of it. Otherwise, it'll skip over that word. it'll feed that into the trained model and output a prediciton of positive or negative. It'll also output an "accuracy" float between 0 or 1.
 
