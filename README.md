@@ -15,11 +15,11 @@ The script then takes these words and feeds it into a single layer neural networ
 
 ### Prototyping the API
 
-Commandline script called run.py loads the model and gets the user to input a phrase. The script checks the corpus for the word. if it finds it, it'll load the index of it. Otherwise, it'll skip over that word. it'll feed that into the trained model and output a prediciton of positive or negative. It'll also output an "accuracy" float between 0 or 1.
+Commandline script called run.py loads the model and gets the user to input a phrase. The script checks the corpus for the word. if it finds it, it'll load the index of it. Otherwise, it'll skip over that word. it'll feed that into the trained model and output a predicton of positive or negative. It'll also output an "accuracy" float between 0 or 1.
 
 ### Flask API
 
-A flask REST api has been created, hosted on heroku. use the model, run a POST request on the url above. here's an example of a request
+In order to turn this into something more useful (and also learn some backend development) a REST API was created using Flask that makes a prediction based on a json request. It is hosted on heroku. To use the model, run a POST request on the url above. here's an example of a request
 ```
 {
     "phrase": "well isn't this stupid"
